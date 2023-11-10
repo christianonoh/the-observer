@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Work_Sans } from 'next/font/google'
 import '/styles/globals.css'
+import Header from '@/components/Header'
 
-const inter = Inter({ subsets: ['latin'] })
+const work = Work_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'The Observer',
@@ -31,7 +32,12 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={work.className}>
+        <Header />
+        <main>
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
