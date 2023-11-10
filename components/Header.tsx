@@ -22,9 +22,9 @@ const Header = () => {
   }
   return (
     <header
-      className={`${styles.xPaddings} max-w-7xl md:py-8 py-3 mx-auto relative border-b border-gray-200`}
+      className={`${styles.xPaddings} md:py-8 py-3 mx-auto relative border-b border-gray-200`}
     >
-      <nav className={`flex items-center justify-between`}>
+      <nav className={`flex items-center justify-between max-w-7xl mx-auto`}>
         <Link href='/'>
           <Image 
             src={Logo} 
