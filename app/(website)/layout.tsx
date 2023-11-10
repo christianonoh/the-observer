@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Work_Sans } from 'next/font/google'
 import '/styles/globals.css'
 import Header from '@/components/Header'
+import Banner from '@/components/Banner'
 
 const work = Work_Sans({ subsets: ['latin'] })
 
@@ -34,6 +35,7 @@ export default function RootLayout({
       </head>
       <body className={work.className}>
         <Header />
+        <Banner />
         <main>
           {children}
         </main>
