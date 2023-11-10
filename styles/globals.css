@@ -9,3 +9,14 @@
   margin: 0;
   padding: 0;
 }
+
+.mobile_nav_container {
+  /* Firefox */
+  height: -moz-calc(100% - 73px);
+  /* WebKit */
+  height: -webkit-calc(100% - 73px);
+  /* Opera */
+  height: -o-calc(100% - 73px);
+  /* Standard */
+  height: calc(100% - 73px);
+}

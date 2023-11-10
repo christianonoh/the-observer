@@ -12,6 +12,9 @@ const styles = {
   flexStart: 'flex justify-start items-start',
   flexEnd: 'flex justify-end',
   navPadding: 'pt-[98px]',
+
+  // buttons
+  blackBtn: 'border border-slate-800 rounded-full bg-slate-800 py-1.5 px-5 text-primary transition-all hover:bg-white hover:text-red text-center text-sm flex items-center justify-center',
 };
 
 export default styles;
