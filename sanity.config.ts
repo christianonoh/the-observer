@@ -12,6 +12,7 @@ import {schema} from './sanity/schema'
 import { myTheme } from './theme'
 import Logo from './components/Logo'
 import StudioNavbar from './components/StudioNavbar'
+import defaultDocumentNode from './sanity/desk/defaultDocumentNode'
 
 export default defineConfig({
   basePath: '/studio',
@@ -20,7 +21,7 @@ export default defineConfig({
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
   plugins: [
-    deskTool(),
+    deskTool({defaultDocumentNode}),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
