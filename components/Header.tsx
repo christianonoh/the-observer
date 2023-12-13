@@ -5,26 +5,36 @@ import Logo from '@/public/images/logo.svg'
 import styles from '@/styles'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { menuVariant, slideIn } from '@/utils/motion'
 import { Divide as Hamburger } from 'hamburger-react'
+import { PreviewBanner } from './PreviewBanner'
 
-const Header = () => {
+const Header = ({isDraftMode}:{isDraftMode: boolean}) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setSticky(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
-  const handleToggle = (toggleDropdown: boolean) => {
-    const mainElement = document.querySelector('main');
-    if (mainElement) {
-      mainElement.style.overflow = toggleDropdown ? 'auto' : 'hidden';
-      mainElement.style.pointerEvents = toggleDropdown ? 'auto' : 'none';
-    }
-  }
   return (
     <header
-      className={`${styles.xPaddings} md:py-8 py-3 mx-auto relative border-b border-gray-200`}
+      className={` mx-auto relative border-b border-gray-200 top-0 left-0 right-0 z-10 ${
+        isSticky ? 'bg-white shadow-md sticky' : ''
+      }`}
     >
-      <nav className={`flex items-center justify-between max-w-7xl mx-auto`}>
+      {isDraftMode && <PreviewBanner />}
+      <nav className={`${styles.xPaddings} flex items-center justify-between max-w-7xl mx-auto md:py-8 py-3`}>
         <Link href='/'>
           <Image 
             src={Logo} 
@@ -55,7 +65,6 @@ const Header = () => {
             toggled={toggleDropdown} 
             size={30}
             label='menu'
-            onToggle={handleToggle}
             duration={0.7}
           />
           <AnimatePresence>
