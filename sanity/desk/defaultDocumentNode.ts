@@ -1,9 +1,10 @@
-// ./nextjs-app/sanity/desk/defaultDocumentNode.ts
+import { DefaultDocumentNodeResolver } from "sanity/desk";
+import { Iframe } from "sanity-plugin-iframe-pane";
 
-import {DefaultDocumentNodeResolver} from 'sanity/desk'
-import {Iframe} from 'sanity-plugin-iframe-pane'
-
-const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
+const defaultDocumentNode: DefaultDocumentNodeResolver = (
+  S,
+  { schemaType }
+) => {
   switch (schemaType) {
     case `post`:
       return S.document().views([
@@ -13,11 +14,11 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (S, {schemaType}) => {
           .options({
             url: `/api/preview`,
           })
-          .title('Preview'),
-      ])
+          .title("Preview"),
+      ]);
     default:
-      return S.document().views([S.view.form()])
+      return S.document().views([S.view.form()]);
   }
-}
+};
 
-export default defaultDocumentNode
+export default defaultDocumentNode;
