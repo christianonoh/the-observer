@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import Image from "next/image";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { urlForImage } from "@/sanity/lib/image";
-import { SanityImageAssetDocument } from "next-sanity";
 
 export const IdealImage = ({ image }: any): ReactElement => {
   const alt = image?.alt ?? "image broke";
