@@ -1,5 +1,6 @@
 import { DefaultDocumentNodeResolver } from "sanity/desk";
 import { Iframe } from "sanity-plugin-iframe-pane";
+import { resolveProductionUrl } from "../lib/sanity.links";
 
 const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
@@ -12,7 +13,7 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
         S.view
           .component(Iframe)
           .options({
-            url: `/api/preview`,
+            url: (doc: any) => resolveProductionUrl(doc),
           })
           .title("Preview"),
       ]);
