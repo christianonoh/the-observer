@@ -8,7 +8,7 @@ import { IdealImage } from "./ImageBox";
 import { Image as ImageType } from "sanity";
 
 export default function Post({ post }: { post: SanityDocument }) {
-  console.log(post.body);
+  // console.log(post.body);
   return (
     <main className="container mx-auto prose prose-lg p-4">
       {post?.title ? <h1>{post.title}</h1> : <h1>Untitled</h1>}

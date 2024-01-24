@@ -9,7 +9,7 @@ export function resolveProductionUrl(doc: SanityDocument) {
     window.location.hostname === "localhost" ? localUrl : remoteUrl;
   const previewUrl = new URL(baseUrl);
   const slug: { current: string } = doc.slug as { current: string };
-  console.log(slug);
+  // console.log(slug);
   previewUrl.pathname = `/api/preview`;
   previewUrl.searchParams.append(`type`, doc._type.toLowerCase());
   previewUrl.searchParams.append(`secret`, previewSecretId!);
