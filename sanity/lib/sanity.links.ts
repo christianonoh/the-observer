@@ -1,7 +1,7 @@
 import { SanityDocument } from "sanity";
 import { previewSecretId } from "../env";
 
-const remoteUrl = `theobserver.vercel.app`;
+const remoteUrl = `https://the-observer-git-preview-test-christians-projects-190bd7e0.vercel.app`;
 const localUrl = `http://localhost:3000`;
 
 export function resolveProductionUrl(doc: SanityDocument) {
